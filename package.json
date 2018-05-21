@@ -1,13 +1,16 @@
 {
   "name": "node-red-contrib-subdb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a node-red node to download subtitles using thesubdb",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Siem",
+  "author": "siem684",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/siem684/node-red-contrib-subdb.git"
+  },
   "node-red": {
     "nodes": {
       "get-subs": "get-subs.js"
