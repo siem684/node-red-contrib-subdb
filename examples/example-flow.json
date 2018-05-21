@@ -1,0 +1,47 @@
+[
+  {
+    "id": "21998f45.4bffe",
+    "type": "get-subs",
+    "z": "5ff3c981.16eca8",
+    "name": "",
+    "x": 760,
+    "y": 660,
+    "wires": []
+  },
+  {
+    "id": "cda44ac7.0abd08",
+    "type": "wfwatch",
+    "z": "5ff3c981.16eca8",
+    "folder": "c:\\myfolder\\mymovies\\",
+    "x": 320,
+    "y": 640,
+    "wires": [["76263da9.3e0bf4"]]
+  },
+  {
+    "id": "d21d947d.43d558",
+    "type": "debug",
+    "z": "5ff3c981.16eca8",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "x": 750,
+    "y": 600,
+    "wires": []
+  },
+  {
+    "id": "76263da9.3e0bf4",
+    "type": "function",
+    "z": "5ff3c981.16eca8",
+    "name": "new videos?",
+    "func":
+      "//only pick up files that were created or edited\n//only pick up files with video extension\n//send all others to debug pane\n\nif (msg.payload.changeType === \"create\" &&\n    !!msg.payload.filePath.match(/\\.(avi|mp4|m4p|mkv)/i)) {\n    msg.payload = msg.payload.filePath;\n    return [null,msg];\n}\nelse return [msg,null];",
+    "outputs": 2,
+    "noerr": 0,
+    "x": 550,
+    "y": 640,
+    "wires": [["d21d947d.43d558"], ["21998f45.4bffe"]]
+  }
+]
